@@ -1,0 +1,159 @@
+/* ============================================================
+   FACÉTICA — TYPOGRAPHY
+   Font loading, type scale, text utilities
+   ============================================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+
+/* ── Type Scale ── */
+:root {
+  --type-11: 0.6875rem;
+  --type-12: 0.75rem;
+  --type-14: 0.875rem;
+  --type-15: 0.9375rem;
+  --type-16: 1rem;
+  --type-18: 1.125rem;
+  --type-22: 1.375rem;
+  --type-28: 1.75rem;
+  --type-36: 2.25rem;
+  --type-48: 3rem;
+  --type-64: 4rem;
+  --type-80: 5rem;
+}
+
+/* ── Headings ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(var(--type-48), 7vw, var(--type-80)); }
+h2 { font-size: clamp(var(--type-36), 4.5vw, var(--type-64)); }
+h3 { font-size: clamp(var(--type-28), 3vw, var(--type-48)); }
+h4 { font-size: clamp(var(--type-22), 2.5vw, var(--type-36)); }
+
+/* ── Body ── */
+p {
+  font-size: var(--type-16);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+p + p {
+  margin-top: var(--space-16);
+}
+
+/* ── Display / Editorial ── */
+.text-display {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(var(--type-64), 8vw, var(--type-80));
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.text-display-sm {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(var(--type-36), 5vw, var(--type-64));
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.text-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(var(--type-22), 2vw, var(--type-28));
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.text-service-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: var(--type-22);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ── Labels & Meta ── */
+.text-label {
+  font-family: 'Inter', sans-serif;
+  font-size: var(--type-11);
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.text-mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: var(--type-12);
+  letter-spacing: 0;
+}
+
+.text-number {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: var(--type-12);
+  color: var(--color-text-muted);
+}
+
+/* ── Utilities ── */
+.text-inverse {
+  color: var(--color-text-inverse);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ── Manifesto Style ── */
+.text-manifesto {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(var(--type-22), 2.5vw, var(--type-28));
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  text-align: center;
+  max-width: 760px;
+  margin-inline: auto;
+  word-spacing: 0.05em;
+}
+
+/* ── Article / Long-form ── */
+.prose p {
+  max-width: 65ch;
+}
+
+.prose h2 {
+  font-size: clamp(var(--type-28), 3vw, var(--type-36));
+  margin-top: var(--space-64);
+  margin-bottom: var(--space-24);
+}
+
+.prose h3 {
+  font-size: clamp(var(--type-22), 2vw, var(--type-28));
+  margin-top: var(--space-48);
+  margin-bottom: var(--space-16);
+}
+
+.prose p + p {
+  margin-top: var(--space-24);
+}

@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Página no encontrada — Facética"
+  description="La página que buscas no existe."
+  noindex={true}
+>
+  <section class="not-found">
+    <div class="container">
+      <span class="not-found-code text-number">404</span>
+      <h1 class="not-found-title">
+        Esta página no existe.<br />
+        Trabajemos en lo que sí.
+      </h1>
+      <p class="not-found-sub">
+        La dirección que ingresaste no corresponde a ninguna página de Facética.
+        Puede que haya cambiado de nombre o simplemente no exista.
+      </p>
+      <a href="/" class="btn btn-primary">Volver al inicio</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-primary);
+    padding-top: var(--nav-height);
+  }
+
+  .not-found-code {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-24);
+  }
+
+  .not-found-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-24);
+    max-width: 600px;
+  }
+
+  .not-found-sub {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 480px;
+    margin-bottom: var(--space-48);
+  }
+</style>

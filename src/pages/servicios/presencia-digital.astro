@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTAStrip from '../../components/home/ContactCTAStrip.astro';
+---
+<BaseLayout title="Presencia Digital — Facética" description="Huella digital coherente con el peso institucional de la organización.">
+  <section class="service-page">
+    <div class="service-page-header">
+      <div class="container">
+        <div class="service-page-nav-hint">
+          <a href="/servicios" class="back-link">← Todos los servicios</a>
+          <span class="text-number">04 / 07</span>
+        </div>
+        <span class="eyebrow">Servicio</span>
+        <h1 class="service-page-title">Presencia Digital</h1>
+        <p class="service-page-tagline">Huella digital coherente con el peso institucional de la organización.</p>
+      </div>
+    </div>
+    <div class="service-page-body section">
+      <div class="container">
+        <div class="service-page-grid">
+          <div class="service-page-text reveal-left">
+            <p class="service-page-lead">No diseñamos campañas de redes sociales. Diseñamos la presencia digital de una organización como extensión de su identidad institucional.</p>
+            <p>Con criterio editorial, coherencia visual y estrategia de largo plazo. La presencia digital institucional no es un canal de marketing — es la cara pública de la organización ante audiencias que cada vez más buscan ahí antes de confiar.</p>
+            <p>Trabajamos desde la estrategia de contenidos hasta los protocolos de respuesta en situaciones difíciles, pasando por la voz, el tono y los criterios editoriales que definen qué dice una organización online y qué no.</p>
+          </div>
+          <aside class="service-page-aside reveal-right">
+            <div class="aside-block">
+              <span class="aside-label">Lo que incluye</span>
+              <ul class="aside-list">
+                <li>Estrategia de presencia digital institucional</li>
+                <li>Definición de voz y tono corporativo</li>
+                <li>Calendario y criterios editoriales</li>
+                <li>Protocolo de respuesta online</li>
+                <li>Gestión de reputación digital</li>
+                <li>Análisis de presencia y competencia</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <ContactCTAStrip />
+</BaseLayout>
+<style>
+  .service-page-header { background-color: var(--color-bg-secondary); padding-top: calc(var(--nav-height) + var(--space-48)); padding-bottom: var(--space-80); border-bottom: 1px solid var(--color-border); }
+  .service-page-nav-hint { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-48); }
+  .back-link { font-size: 0.8125rem; color: var(--color-text-muted); transition: color var(--duration-fast); }
+  .back-link:hover { color: var(--color-text-primary); }
+  .service-page-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.025em; color: var(--color-text-primary); margin-top: var(--space-16); margin-bottom: var(--space-24); }
+  .service-page-tagline { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.125rem, 2vw, 1.375rem); font-style: italic; font-weight: 300; color: var(--color-text-secondary); max-width: 560px; line-height: 1.5; }
+  .service-page-body { background-color: var(--color-bg-primary); }
+  .service-page-grid { display: grid; grid-template-columns: 1fr 340px; gap: var(--space-80); align-items: start; }
+  .service-page-lead { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 300; line-height: 1.5; color: var(--color-text-primary); margin-bottom: var(--space-32); }
+  .service-page-text p { font-size: 1rem; line-height: 1.75; color: var(--color-text-secondary); }
+  .service-page-text p + p { margin-top: var(--space-20); }
+  .service-page-aside { position: sticky; top: calc(var(--nav-height) + var(--space-32)); }
+  .aside-block { background-color: var(--color-bg-secondary); padding: var(--space-32); border-radius: 2px; }
+  .aside-label { display: block; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: var(--space-20); }
+  .aside-list { display: flex; flex-direction: column; gap: var(--space-12); }
+  .aside-list li { font-size: 0.875rem; line-height: 1.5; color: var(--color-text-secondary); padding-left: var(--space-16); position: relative; }
+  .aside-list li::before { content: '—'; position: absolute; left: 0; color: var(--color-text-muted); font-size: 0.75rem; }
+  @media (max-width: 900px) { .service-page-grid { grid-template-columns: 1fr; } .service-page-aside { position: static; } }
+</style>

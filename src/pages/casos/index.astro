@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ContactCTAStrip from '../../components/home/ContactCTAStrip.astro';
+
+const allCasos = await getCollection('casos');
+const casos = allCasos.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<BaseLayout
+  title="Casos — Facética"
+  description="Una selección de proyectos que ilustran cómo trabajamos y qué tipo de resultados construimos junto a nuestros clientes."
+>
+  <!-- Header -->
+  <section class="casos-header">
+    <div class="container">
+      <span class="eyebrow">Trabajo seleccionado</span>
+      <h1 class="casos-title">Casos</h1>
+      <p class="casos-sub lead">
+        Una selección de proyectos que ilustran cómo trabajamos y qué tipo
+        de resultados construimos junto a nuestros clientes.
+      </p>
+      <p class="casos-note">
+        Por razones de confidencialidad, los clientes no se identifican por
+        nombre. Los sectores e industrias se indican cuando es relevante.
+      </p>
+    </div>
+  </section>
+
+  <!-- Cases -->
+  <section class="casos-list section">
+    <div class="container">
+      {casos.map((caso, i) => (
+        <a href={`/casos/${caso.slug}`} class={`caso-item reveal stagger-${Math.min(i + 1, 5)}`}>
+          <div class="caso-meta">
+            <span class="text-label">{caso.data.sector}</span>
+            <span class="caso-challenge text-number">{caso.data.challenge}</span>
+          </div>
+          <div class="caso-content">
+            <h2 class="caso-title">{caso.data.title}</h2>
+            <p class="caso-desc">{caso.data.description}</p>
+          </div>
+          <span class="caso-arrow">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <ContactCTAStrip />
+</BaseLayout>
+
+<style>
+  .casos-header {
+    background-color: var(--color-bg-secondary);
+    padding-top: calc(var(--nav-height) + var(--space-80));
+    padding-bottom: var(--space-80);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .casos-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-24);
+  }
+
+  .casos-sub {
+    max-width: 520px;
+    margin-bottom: var(--space-24);
+  }
+
+  .casos-note {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .casos-list {
+    background-color: var(--color-bg-primary);
+  }
+
+  .caso-item {
+    display: grid;
+    grid-template-columns: 280px 1fr auto;
+    gap: var(--space-48);
+    align-items: start;
+    padding-block: var(--space-48);
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    transition: opacity var(--duration-base);
+  }
+
+  .caso-item:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .caso-item:hover {
+    opacity: 0.8;
+  }
+
+  .caso-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    padding-top: var(--space-4);
+  }
+
+  .caso-challenge {
+    color: var(--color-text-muted);
+  }
+
+  .caso-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-16);
+  }
+
+  .caso-desc {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+  }
+
+  .caso-arrow {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    padding-top: var(--space-4);
+    transition: transform var(--duration-base) var(--ease-out),
+                color var(--duration-base) var(--ease-out);
+  }
+
+  .caso-item:hover .caso-arrow {
+    transform: translateX(6px);
+    color: var(--color-accent-green);
+  }
+
+  @media (max-width: 900px) {
+    .caso-item {
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+    }
+
+    .caso-arrow {
+      display: none;
+    }
+  }
+</style>

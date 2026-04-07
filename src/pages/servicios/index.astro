@@ -1,0 +1,192 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactCTAStrip from '../../components/home/ContactCTAStrip.astro';
+
+const services = [
+  {
+    number: '01',
+    name: 'Comunicación Corporativa',
+    description: 'Narrativas que sostienen la reputación en el tiempo.',
+    body: 'Construimos el relato de su organización desde adentro hacia afuera — coherente con su cultura, creíble para sus audiencias, sostenible en el largo plazo. No hablamos de "imagen": hablamos de posicionamiento institucional con consecuencias reales.',
+    href: '/servicios/comunicacion-corporativa',
+  },
+  {
+    number: '02',
+    name: 'Manejo de Crisis',
+    description: 'Claridad, velocidad y criterio cuando el margen de error es cero.',
+    body: 'Las crisis no se gestionan con manuales: se gestionan con criterio entrenado y decisiones rápidas. Asesoramos en tiempo real, construimos salas de crisis funcionales y desarrollamos protocolos que no se disuelven bajo presión.',
+    href: '/servicios/manejo-de-crisis',
+  },
+  {
+    number: '03',
+    name: 'Entrenamiento de Portavoces',
+    description: 'Voceros que comunican con convicción, no con guión.',
+    body: 'Un vocero eficaz no memoriza respuestas — comprende el contexto, sabe qué no decir y es capaz de sostener el mensaje bajo presión. Nuestros talleres mezclan preparación conceptual con simulación real.',
+    href: '/servicios/entrenamiento-de-portavoces',
+  },
+  {
+    number: '04',
+    name: 'Presencia Digital',
+    description: 'Huella digital coherente con el peso institucional de la organización.',
+    body: 'No diseñamos campañas de redes sociales. Diseñamos la presencia digital de una organización como extensión de su identidad institucional — con criterio editorial, coherencia visual y estrategia de largo plazo.',
+    href: '/servicios/presencia-digital',
+  },
+  {
+    number: '05',
+    name: 'Comunicación Interna',
+    description: 'Equipos que entienden el rumbo porque alguien se los supo decir.',
+    body: 'La comunicación interna es la más difícil de todas: hay que decir la verdad, en el momento justo, al público más exigente. Desarrollamos estrategias de comunicación interna que construyen cultura sin caer en el boletín corporativo.',
+    href: '/servicios/comunicacion-interna',
+  },
+  {
+    number: '06',
+    name: 'Contenido Editorial',
+    description: 'Contenido que informa, posiciona y perdura.',
+    body: 'Publicaciones institucionales, informes de sostenibilidad, memorias anuales, columnas de opinión, libros corporativos. Escribimos con rigor periodístico y criterio estratégico — no para llenar espacios, sino para decir algo que valga la pena leer.',
+    href: '/servicios/contenido-editorial',
+  },
+  {
+    number: '07',
+    name: 'Comunicación de Sustentabilidad',
+    description: 'El compromiso ambiental y social, dicho sin grandilocuencia.',
+    body: 'Ayudamos a organizaciones a comunicar su agenda de sustentabilidad de forma creíble, específica y sin caer en el greenwashing. La sustentabilidad bien comunicada no necesita adornos — necesita evidencia y un relato honesto.',
+    href: '/servicios/comunicacion-de-sustentabilidad',
+  },
+];
+---
+
+<BaseLayout
+  title="Servicios — Facética"
+  description="Comunicación corporativa, manejo de crisis, entrenamiento de portavoces, presencia digital, comunicación interna, contenido editorial y sustentabilidad."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Servicios</span>
+      <h1 class="page-title">Lo que hacemos</h1>
+      <p class="page-lead lead">
+        Siete áreas de trabajo. Una sola forma de hacerlo: con diagnóstico,
+        criterio y atención al detalle.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="services-full section">
+    <div class="container">
+      {services.map((service, i) => (
+        <div class={`service-block reveal stagger-${Math.min(i + 1, 7)}`} id={service.href.split('/').pop()}>
+          <div class="service-block-header">
+            <span class="text-number service-num">{service.number}</span>
+            <h2 class="service-block-name">{service.name}</h2>
+            <a href={service.href} class="arrow-link service-block-link">
+              Ver en detalle
+            </a>
+          </div>
+          <div class="service-block-body">
+            <p class="service-block-tagline">{service.description}</p>
+            <p class="service-block-text">{service.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <ContactCTAStrip />
+</BaseLayout>
+
+<style>
+  .page-header {
+    background-color: var(--color-bg-secondary);
+    padding-top: calc(var(--nav-height) + var(--space-80));
+    padding-bottom: var(--space-80);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-24);
+  }
+
+  .page-lead {
+    max-width: 520px;
+  }
+
+  /* ── Services ── */
+  .services-full {
+    background-color: var(--color-bg-primary);
+  }
+
+  .service-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-80);
+    padding-block: var(--space-64);
+    border-bottom: 1px solid var(--color-border);
+    align-items: start;
+  }
+
+  .service-block:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .service-block-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-32));
+  }
+
+  .service-num {
+    color: var(--color-text-muted);
+  }
+
+  .service-block-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+  }
+
+  .service-block-link {
+    margin-top: var(--space-8);
+    align-self: flex-start;
+  }
+
+  .service-block-tagline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-20);
+    line-height: 1.5;
+  }
+
+  .service-block-text {
+    font-size: 0.9375rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 768px) {
+    .service-block {
+      grid-template-columns: 1fr;
+      gap: var(--space-24);
+    }
+
+    .service-block-header {
+      position: static;
+    }
+  }
+</style>

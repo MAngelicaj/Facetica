@@ -1,0 +1,132 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  category?: string;
+  date?: string;
+  image?: string;
+}
+
+const { title, description, category, date, image } = Astro.props;
+
+const formattedDate = date
+  ? new Date(date).toLocaleDateString('es-CL', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : null;
+---
+
+<BaseLayout title={`${title} — Facética`} description={description} image={image}>
+  <article class="article-layout">
+    <!-- Progress bar -->
+    <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+    <!-- Article Header -->
+    <header class="article-header">
+      <div class="container">
+        <div class="article-meta">
+          {category && <span class="text-label">{category}</span>}
+          {formattedDate && <time class="text-number" datetime={date}>{formattedDate}</time>}
+        </div>
+        <h1 class="article-title">{title}</h1>
+        {description && <p class="article-description">{description}</p>}
+      </div>
+    </header>
+
+    <!-- Article Body -->
+    <div class="article-body">
+      <div class="container">
+        <div class="prose">
+          <slot />
+        </div>
+      </div>
+    </div>
+
+    <!-- Back link -->
+    <div class="article-footer">
+      <div class="container">
+        <a href="/ideas" class="arrow-link back-link">← Volver a Ideas</a>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-layout {
+    padding-top: var(--nav-height);
+  }
+
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: var(--color-accent-green);
+    z-index: 200;
+    transition: width 100ms linear;
+  }
+
+  .article-header {
+    padding-block: var(--space-80) var(--space-64);
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+    margin-bottom: var(--space-32);
+  }
+
+  .article-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 300;
+    max-width: 820px;
+    margin-bottom: var(--space-24);
+  }
+
+  .article-description {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 640px;
+  }
+
+  .article-body {
+    padding-block: var(--space-80);
+  }
+
+  .article-footer {
+    padding-block: var(--space-48) var(--space-80);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+  }
+
+  .back-link::after {
+    display: none;
+  }
+</style>
+
+<script>
+  const progressBar = document.getElementById('reading-progress');
+  const articleBody = document.querySelector('.article-body');
+
+  if (progressBar && articleBody) {
+    window.addEventListener('scroll', () => {
+      const rect = articleBody.getBoundingClientRect();
+      const total = articleBody.scrollHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      const progress = Math.min(Math.max((scrolled / total) * 100, 0), 100);
+      progressBar.style.width = `${progress}%`;
+    }, { passive: true });
+  }
+</script>

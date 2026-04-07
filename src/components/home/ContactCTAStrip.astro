@@ -1,0 +1,87 @@
+---
+---
+
+<section class="cta-strip" aria-label="Contacto">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-headline">
+        Hay conversaciones que vale la pena tener.
+      </h2>
+      <p class="cta-sub">
+        Si estás evaluando cómo su organización comunica —o debería
+        comunicar— podemos ser un buen punto de partida.
+      </p>
+      <div class="cta-actions">
+        <a href="/contacto" class="btn btn-inverse">Contactar a Facética</a>
+        <a href="mailto:hola@facetica.com" class="cta-email">hola@facetica.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-strip {
+    background-color: var(--color-bg-dark);
+    padding-block: var(--space-120);
+  }
+
+  .cta-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  .cta-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-24);
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(240, 236, 228, 0.65);
+    max-width: 480px;
+    margin-bottom: var(--space-48);
+  }
+
+  .cta-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-24);
+  }
+
+  .cta-email {
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    color: rgba(240, 236, 228, 0.5);
+    border-bottom: 1px solid rgba(240, 236, 228, 0.2);
+    padding-bottom: 2px;
+    transition: color var(--duration-fast), border-color var(--duration-fast);
+  }
+
+  .cta-email:hover {
+    color: var(--color-text-inverse);
+    border-color: rgba(240, 236, 228, 0.5);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .cta-strip {
+      padding-block: var(--space-80);
+    }
+
+    .btn-inverse {
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+</style>

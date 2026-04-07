@@ -1,0 +1,184 @@
+---
+const services = [
+  {
+    number: '01',
+    name: 'Comunicación Corporativa',
+    description: 'Narrativas que sostienen la reputación en el tiempo.',
+    href: '/servicios/comunicacion-corporativa',
+  },
+  {
+    number: '02',
+    name: 'Manejo de Crisis',
+    description: 'Claridad, velocidad y criterio cuando el margen de error es cero.',
+    href: '/servicios/manejo-de-crisis',
+  },
+  {
+    number: '03',
+    name: 'Entrenamiento de Portavoces',
+    description: 'Voceros que comunican con convicción, no con guión.',
+    href: '/servicios/entrenamiento-de-portavoces',
+  },
+  {
+    number: '04',
+    name: 'Presencia Digital',
+    description: 'Huella digital coherente con el peso institucional de la organización.',
+    href: '/servicios/presencia-digital',
+  },
+  {
+    number: '05',
+    name: 'Comunicación Interna',
+    description: 'Equipos que entienden el rumbo porque alguien se los supo decir.',
+    href: '/servicios/comunicacion-interna',
+  },
+  {
+    number: '06',
+    name: 'Contenido Editorial',
+    description: 'Contenido que informa, posiciona y perdura.',
+    href: '/servicios/contenido-editorial',
+  },
+  {
+    number: '07',
+    name: 'Comunicación de Sustentabilidad',
+    description: 'El compromiso ambiental y social, dicho sin grandilocuencia.',
+    href: '/servicios/comunicacion-de-sustentabilidad',
+  },
+];
+---
+
+<section class="services section" aria-label="Servicios">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2 class="section-heading">Lo que hacemos</h2>
+    </div>
+
+    <ul class="services-list" role="list">
+      {services.map((service, i) => (
+        <li class={`service-item reveal stagger-${Math.min(i + 1, 7)}`}>
+          <a href={service.href} class="service-link" aria-label={`Ver servicio: ${service.name}`}>
+            <span class="service-number text-number">{service.number}</span>
+            <div class="service-content">
+              <span class="service-name">{service.name}</span>
+              <span class="service-desc">{service.description}</span>
+            </div>
+            <span class="service-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="services-footer reveal">
+      <a href="/servicios" class="arrow-link">Ver todos los servicios</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background-color: var(--color-bg-primary);
+  }
+
+  .services-header {
+    margin-bottom: var(--space-64);
+  }
+
+  .services-list {
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ── Service Row ── */
+  .service-item {
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+  }
+
+  .service-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-bg-secondary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 300ms var(--ease-out);
+    z-index: 0;
+  }
+
+  .service-item:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-link {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: var(--space-24);
+    padding-block: var(--space-24);
+    padding-inline: var(--space-8);
+    position: relative;
+    z-index: 1;
+    transition: border-color var(--duration-base);
+  }
+
+  .service-number {
+    color: var(--color-text-muted);
+    transition: color var(--duration-base) var(--ease-out);
+  }
+
+  .service-item:hover .service-number {
+    color: var(--color-accent-green);
+  }
+
+  .service-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: var(--type-22);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    transition: color var(--duration-base);
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    transition: color var(--duration-base);
+  }
+
+  .service-item:hover .service-desc {
+    color: var(--color-text-secondary);
+  }
+
+  .service-arrow {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    transition: transform var(--duration-base) var(--ease-out),
+                color var(--duration-base) var(--ease-out);
+  }
+
+  .service-item:hover .service-arrow {
+    transform: translateX(6px);
+    color: var(--color-accent-green);
+  }
+
+  .services-footer {
+    margin-top: var(--space-48);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .service-link {
+      grid-template-columns: 40px 1fr;
+    }
+
+    .service-arrow {
+      display: none;
+    }
+  }
+</style>

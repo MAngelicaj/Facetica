@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTAStrip from '../components/home/ContactCTAStrip.astro';
+---
+
+<BaseLayout
+  title="Nosotros — Facética"
+  description="Facética es una consultora de comunicación estratégica que trabaja con un número acotado de clientes porque creemos que el conocimiento profundo de una organización no se delega."
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <span class="eyebrow">Quiénes somos</span>
+      <h1 class="page-title">
+        Una consultora pequeña<br />
+        por decisión, no por tamaño.
+      </h1>
+    </div>
+  </section>
+
+  <!-- About Body -->
+  <section class="about section">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Main text -->
+        <div class="about-text reveal-left">
+          <p class="about-lead">
+            Facética nació de la convicción de que la comunicación estratégica
+            de calidad requiere atención real, no equipos intercambiables.
+          </p>
+          <p>
+            Trabajamos con un número acotado de clientes porque creemos que el
+            conocimiento profundo de una organización —su cultura, sus
+            tensiones internas, su historia— no se delega a un equipo de
+            cuentas.
+          </p>
+          <p>
+            Tenemos experiencia en sectores regulados, entornos de alta
+            exposición y situaciones donde el error de comunicación tiene
+            consecuencias concretas: pérdida de confianza, crisis reputacional,
+            fractura del relato institucional.
+          </p>
+          <p>
+            Nos especializamos en momentos difíciles. No porque la comunicación
+            ordinaria no importe, sino porque los momentos difíciles revelan si
+            una organización tiene algo verdadero que decir.
+          </p>
+        </div>
+
+        <!-- Sidebar facts -->
+        <aside class="about-aside reveal-right">
+          <div class="about-stat">
+            <span class="stat-number">+15</span>
+            <span class="stat-label">años de experiencia combinada</span>
+          </div>
+          <hr class="rule" />
+          <div class="about-stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">países en los que hemos operado</span>
+          </div>
+          <hr class="rule" />
+          <div class="about-stat">
+            <span class="stat-label stat-label-sm">
+              Sectores de experiencia
+            </span>
+            <ul class="stat-list">
+              <li>Sector financiero y banca</li>
+              <li>Energía y recursos naturales</li>
+              <li>Salud y farmacéutica</li>
+              <li>Gobierno y sector público</li>
+              <li>Tecnología e innovación</li>
+              <li>Retail y consumo masivo</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology -->
+  <section class="methodology section">
+    <div class="container">
+      <div class="methodology-header reveal">
+        <span class="eyebrow">Cómo trabajamos</span>
+        <h2 class="section-heading">Un proceso que parte del diagnóstico, no del formato.</h2>
+      </div>
+
+      <div class="methodology-steps">
+        {[
+          { num: '01', title: 'Diagnóstico', body: 'Entendemos el contexto antes de proponer nada. El problema de comunicación visible casi siempre tiene raíces más profundas.' },
+          { num: '02', title: 'Análisis estratégico', body: 'Mapeamos audiencias, expectativas, riesgos y oportunidades. El análisis informa la estrategia, no al revés.' },
+          { num: '03', title: 'Narrativa', body: 'Construimos el relato que le corresponde a la organización: coherente con su historia, creíble para sus audiencias.' },
+          { num: '04', title: 'Tácticas', body: 'Los formatos, canales y mensajes son consecuencia de la estrategia. Nunca al revés.' },
+          { num: '05', title: 'Ejecución', body: 'Acompañamos la implementación con la misma atención con que diseñamos la estrategia.' },
+          { num: '06', title: 'Resultados', body: 'Medimos lo que importa: cambios de percepción, cobertura con marco, mantenimiento de reputación en el tiempo.' },
+        ].map((step, i) => (
+          <div class={`methodology-step reveal stagger-${Math.min(i + 1, 6)}`}>
+            <span class="text-number">{step.num}</span>
+            <div class="step-content">
+              <h3 class="step-title">{step.title}</h3>
+              <p class="step-body">{step.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactCTAStrip />
+</BaseLayout>
+
+<style>
+  /* ── Page Header ── */
+  .page-header {
+    background-color: var(--color-bg-secondary);
+    padding-top: calc(var(--nav-height) + var(--space-80));
+    padding-bottom: var(--space-80);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-top: var(--space-16);
+  }
+
+  /* ── About ── */
+  .about {
+    background-color: var(--color-bg-primary);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: var(--space-80);
+    align-items: start;
+  }
+
+  .about-lead {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-32);
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+  }
+
+  .about-text p + p {
+    margin-top: var(--space-20);
+  }
+
+  /* ── Aside ── */
+  .about-aside {
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-32));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-24);
+    background-color: var(--color-bg-secondary);
+    padding: var(--space-32);
+    border-radius: 2px;
+  }
+
+  .about-stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--color-text-primary);
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .stat-label-sm {
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-8);
+    display: block;
+  }
+
+  .stat-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .stat-list li {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    padding-left: var(--space-12);
+    position: relative;
+  }
+
+  .stat-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+  }
+
+  /* ── Methodology ── */
+  .methodology {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .methodology-header {
+    margin-bottom: var(--space-64);
+    max-width: 640px;
+  }
+
+  .methodology-header .section-heading {
+    margin-top: var(--space-16);
+  }
+
+  .methodology-steps {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .methodology-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: var(--space-24);
+    align-items: start;
+    padding-block: var(--space-32);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+    letter-spacing: -0.01em;
+  }
+
+  .step-body {
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-aside {
+      position: static;
+    }
+  }
+</style>
