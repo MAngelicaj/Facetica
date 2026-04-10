@@ -1,0 +1,129 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Diagnóstico',
+    body: 'Entendemos el contexto antes de proponer nada.',
+  },
+  {
+    number: '02',
+    title: 'Análisis estratégico',
+    body: 'Mapeamos audiencias, riesgos y oportunidades.',
+  },
+  {
+    number: '03',
+    title: 'Narrativa',
+    body: 'Construimos el relato que le corresponde a la organización.',
+  },
+  {
+    number: '04',
+    title: 'Tácticas',
+    body: 'Los formatos y canales son consecuencia de la estrategia.',
+  },
+  {
+    number: '05',
+    title: 'Ejecución',
+    body: 'Acompañamos la implementación con la misma atención con que diseñamos.',
+  },
+  {
+    number: '06',
+    title: 'Resultados',
+    body: 'Medimos lo que importa: confianza, percepción y reputación en el tiempo.',
+  },
+];
+---
+
+<section class="metodologia section" aria-label="Metodología">
+  <div class="container">
+    <div class="metodologia-header reveal">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2 class="section-heading">
+        Un proceso que parte del diagnóstico,<br />no del formato.
+      </h2>
+    </div>
+
+    <div class="metodologia-steps">
+      {steps.map((step, i) => (
+        <div class={`metodologia-step reveal stagger-${Math.min(i + 1, 6)}`}>
+          <span class="step-number text-number">{step.number}</span>
+          <div class="step-body">
+            <h3 class="step-title">{step.title}</h3>
+            <p class="step-desc">{step.body}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="metodologia-footer reveal">
+      <a href="/nosotros" class="arrow-link">Conocer más sobre nuestra forma de trabajar</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .metodologia {
+    background-color: var(--color-bg-secondary);
+  }
+
+  .metodologia-header {
+    margin-bottom: var(--space-64);
+    max-width: 680px;
+  }
+
+  .metodologia-header .section-heading {
+    margin-top: var(--space-16);
+  }
+
+  .metodologia-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-bottom: var(--space-64);
+  }
+
+  .metodologia-step {
+    background-color: var(--color-bg-primary);
+    padding: var(--space-32);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    border-radius: 2px;
+    transition: background-color var(--duration-base);
+  }
+
+  .metodologia-step:hover {
+    background-color: #f5f2ec;
+  }
+
+  .step-number {
+    color: var(--color-accent);
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  .step-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 900px) {
+    .metodologia-steps {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .metodologia-steps {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

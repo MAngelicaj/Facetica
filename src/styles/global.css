@@ -13,8 +13,9 @@
   --color-text-secondary:   #6B6860;
   --color-text-muted:       #9E9B95;
   --color-text-inverse:     #F0ECE4;
-  --color-accent-green:     #2D5A3D;
-  --color-accent-champagne: #C8C49C;
+  --color-accent:           #C4614A;   /* coral / terracota — acento principal */
+  --color-accent-hover:     #AD5040;   /* coral oscuro — hover */
+  --color-accent-champagne: #C8C49C;   /* champagne — decorativo */
   --color-border:           #E4E1DA;
   --color-border-dark:      #2A3D32;
 
@@ -162,8 +163,8 @@ button {
 }
 
 .arrow-link:hover {
-  color: var(--color-accent-green);
-  border-color: var(--color-accent-green);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .arrow-link::after {
@@ -199,8 +200,8 @@ button {
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent-green);
-  border-color: var(--color-accent-green);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .btn-outline {
@@ -248,7 +249,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent-green);
+  outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
