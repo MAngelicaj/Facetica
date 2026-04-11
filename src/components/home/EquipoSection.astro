@@ -18,37 +18,43 @@ const equipo = [
 <section class="equipo section" aria-label="Nuestro Equipo">
   <div class="container">
 
-    <div class="equipo-header reveal">
-      <span class="eyebrow">El equipo</span>
-      <h2 class="section-heading">Nuestro Equipo</h2>
-      <p class="equipo-bajada">
-        Somos profesionales con más de 15 años de experiencia en comunicación,
-        desde distintos roles: medios de comunicación, mundo público, startups,
-        fundaciones y agencias. Nuestra trayectoria combina criterio editorial,
-        comprensión del entorno institucional y experiencia en posicionamiento estratégico.
-      </p>
-    </div>
+    <div class="equipo-inner">
 
-    <div class="equipo-grid">
-      {equipo.map((persona, i) => (
-        <div class={`equipo-card reveal stagger-${i + 1}`}>
-          <div class="equipo-foto-wrap">
-            <img
-              src={persona.foto}
-              alt={persona.nombre}
-              class="equipo-foto"
-              onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
-            />
-            <div class="equipo-foto-placeholder">
-              <span>{persona.iniciales}</span>
+      <!-- Texto izquierda -->
+      <div class="equipo-texto reveal-left">
+        <span class="eyebrow">El equipo</span>
+        <h2 class="section-heading equipo-titulo">Nuestro Equipo</h2>
+        <p class="equipo-bajada">
+          Somos profesionales con más de 15 años de experiencia en comunicación,
+          desde distintos roles: medios de comunicación, mundo público, startups,
+          fundaciones y agencias. Nuestra trayectoria combina criterio editorial,
+          comprensión del entorno institucional y experiencia en posicionamiento estratégico.
+        </p>
+      </div>
+
+      <!-- Fotos derecha -->
+      <div class="equipo-grid reveal-right">
+        {equipo.map((persona) => (
+          <div class="equipo-card">
+            <div class="equipo-foto-wrap">
+              <img
+                src={persona.foto}
+                alt={persona.nombre}
+                class="equipo-foto"
+                onerror={`this.style.display='none';this.nextElementSibling.style.display='flex'`}
+              />
+              <div class="equipo-foto-placeholder">
+                <span>{persona.iniciales}</span>
+              </div>
+            </div>
+            <div class="equipo-info">
+              <h3 class="equipo-nombre">{persona.nombre}</h3>
+              <p class="equipo-rol">{persona.rol}</p>
             </div>
           </div>
-          <div class="equipo-info">
-            <h3 class="equipo-nombre">{persona.nombre}</h3>
-            <p class="equipo-rol">{persona.rol}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
     </div>
 
   </div>
@@ -59,29 +65,31 @@ const equipo = [
     background-color: var(--color-bg-primary);
   }
 
-  /* ── Header ── */
-  .equipo-header {
-    margin-bottom: var(--space-64);
-    max-width: 680px;
+  /* ── Layout principal: texto | fotos ── */
+  .equipo-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-80);
+    align-items: center;
   }
 
-  .equipo-header .section-heading {
+  /* ── Texto ── */
+  .equipo-titulo {
     margin-top: var(--space-16);
     margin-bottom: var(--space-24);
   }
 
   .equipo-bajada {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     line-height: 1.75;
     color: var(--color-text-secondary);
-    max-width: 620px;
   }
 
-  /* ── Grid ── */
+  /* ── Grid de fotos (dentro de la columna derecha) ── */
   .equipo-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-64);
+    gap: var(--space-32);
   }
 
   /* ── Card ── */
