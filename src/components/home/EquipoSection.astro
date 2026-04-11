@@ -3,12 +3,14 @@ const equipo = [
   {
     nombre: 'Carla Fuentes Vicuña',
     rol: 'Socia',
+    profesion: 'Periodista de la Pontificia Universidad Católica de Chile',
     foto: '/equipo/carla-fuentes.webp',
     iniciales: 'CF',
   },
   {
     nombre: 'María Angélica Joannon',
     rol: 'Socia',
+    profesion: 'Periodista de la Pontificia Universidad Católica de Chile',
     foto: '/equipo/maria-angelica-joannon.webp',
     iniciales: 'MJ',
   },
@@ -50,6 +52,7 @@ const equipo = [
             <div class="equipo-info">
               <h3 class="equipo-nombre">{persona.nombre}</h3>
               <p class="equipo-rol">{persona.rol}</p>
+              <p class="equipo-profesion">{persona.profesion}</p>
             </div>
           </div>
         ))}
@@ -155,6 +158,13 @@ const equipo = [
     font-size: 0.875rem;
     color: var(--color-text-muted);
     line-height: 1.4;
+  }
+
+  .equipo-profesion {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    font-style: italic;
   }
 
   /* ── Mobile ── */
