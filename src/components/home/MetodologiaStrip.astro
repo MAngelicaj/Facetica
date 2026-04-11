@@ -1,32 +1,32 @@
 ---
 const steps = [
   {
-    number: '01',
+    roman: 'I',
     title: 'Diagnóstico',
     body: 'Entendemos el contexto antes de proponer nada.',
   },
   {
-    number: '02',
+    roman: 'II',
     title: 'Análisis estratégico',
     body: 'Mapeamos audiencias, riesgos y oportunidades.',
   },
   {
-    number: '03',
+    roman: 'III',
     title: 'Narrativa',
     body: 'Construimos el relato que le corresponde a la organización.',
   },
   {
-    number: '04',
+    roman: 'IV',
     title: 'Tácticas',
     body: 'Los formatos y canales son consecuencia de la estrategia.',
   },
   {
-    number: '05',
+    roman: 'V',
     title: 'Ejecución',
     body: 'Acompañamos la implementación con la misma atención con que diseñamos.',
   },
   {
-    number: '06',
+    roman: 'VI',
     title: 'Resultados',
     body: 'Medimos lo que importa: confianza, percepción y reputación en el tiempo.',
   },
@@ -35,21 +35,34 @@ const steps = [
 
 <section class="metodologia section" aria-label="Metodología">
   <div class="container">
+
+    <!-- Encabezado -->
     <div class="metodologia-header reveal">
       <span class="eyebrow">Cómo trabajamos</span>
-      <h2 class="section-heading">
-        Un proceso que parte del diagnóstico,<br />no del formato.
-      </h2>
+      <h2 class="metodologia-titulo">Metodología</h2>
+      <p class="metodologia-sub">
+        Un proceso riguroso y transparente en cada proyecto,<br />
+        diseñado para construir con criterio y sin atajos.
+      </p>
     </div>
 
-    <div class="metodologia-steps">
-      {steps.map((step, i) => (
-        <div class={`metodologia-step reveal stagger-${Math.min(i + 1, 6)}`}>
-          <span class="step-number text-number">{step.number}</span>
-          <div class="step-body">
-            <h3 class="step-title">{step.title}</h3>
-            <p class="step-desc">{step.body}</p>
+    <!-- Línea de tiempo: fila de círculos -->
+    <div class="timeline-circles reveal">
+      {steps.map((step) => (
+        <div class="timeline-node">
+          <div class="timeline-circle">
+            <span class="timeline-roman">{step.roman}</span>
           </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Textos debajo -->
+    <div class="timeline-labels reveal">
+      {steps.map((step) => (
+        <div class="timeline-label">
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.body}</p>
         </div>
       ))}
     </div>
@@ -62,65 +75,125 @@ const steps = [
     background-color: var(--color-bg-secondary);
   }
 
+  /* ── Encabezado ── */
   .metodologia-header {
-    margin-bottom: var(--space-64);
-    max-width: 680px;
+    margin-bottom: var(--space-80);
+    max-width: 560px;
   }
 
-  .metodologia-header .section-heading {
-    margin-top: var(--space-16);
-  }
-
-  .metodologia-steps {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-4);
-    margin-bottom: var(--space-64);
-  }
-
-  .metodologia-step {
-    background-color: var(--color-bg-primary);
-    padding: var(--space-32);
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-16);
-    border-radius: 2px;
-    transition: background-color var(--duration-base);
-  }
-
-  .metodologia-step:hover {
-    background-color: #f5f2ec;
-  }
-
-  .step-number {
-    color: var(--color-accent);
-  }
-
-  .step-title {
+  .metodologia-titulo {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    letter-spacing: -0.01em;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
     color: var(--color-text-primary);
-    line-height: 1.2;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-24);
   }
 
-  .step-desc {
-    font-size: 0.875rem;
-    line-height: 1.65;
+  .metodologia-sub {
+    font-size: 0.9375rem;
+    line-height: 1.7;
     color: var(--color-text-secondary);
   }
 
-  /* ── Mobile ── */
+  /* ── Fila de círculos ── */
+  .timeline-circles {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+    margin-bottom: var(--space-32);
+  }
+
+  /* Línea horizontal entre el primer y último círculo */
+  .timeline-circles::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: calc(100% / 12);
+    right: calc(100% / 12);
+    height: 1px;
+    background-color: var(--color-border);
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+
+  .timeline-node {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .timeline-roman {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Textos ── */
+  .timeline-labels {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-16);
+  }
+
+  .timeline-label {
+    text-align: center;
+    padding-inline: var(--space-8);
+  }
+
+  .step-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-8);
+    line-height: 1.3;
+  }
+
+  .step-desc {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  /* ── Tablet ── */
   @media (max-width: 900px) {
-    .metodologia-steps {
-      grid-template-columns: repeat(2, 1fr);
+    .timeline-circles,
+    .timeline-labels {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-24);
+    }
+
+    .timeline-circles::before {
+      display: none;
+    }
+
+    .timeline-circles {
+      margin-bottom: var(--space-16);
     }
   }
 
-  @media (max-width: 600px) {
-    .metodologia-steps {
-      grid-template-columns: 1fr;
+  /* ── Mobile ── */
+  @media (max-width: 500px) {
+    .timeline-circles,
+    .timeline-labels {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
