@@ -55,21 +55,17 @@ const services = [
     <ul class="services-list" role="list">
       {services.map((service, i) => (
         <li class={`service-item reveal stagger-${Math.min(i + 1, 7)}`}>
-          <a href={service.href} class="service-link" aria-label={`Ver servicio: ${service.name}`}>
+          <div class="service-link">
             <span class="service-number text-number">{service.number}</span>
             <div class="service-content">
               <span class="service-name">{service.name}</span>
               <span class="service-desc">{service.description}</span>
             </div>
-            <span class="service-arrow" aria-hidden="true">→</span>
-          </a>
+          </div>
         </li>
       ))}
     </ul>
 
-    <div class="services-footer reveal">
-      <a href="/servicios" class="arrow-link">Ver todos los servicios</a>
-    </div>
   </div>
 </section>
 

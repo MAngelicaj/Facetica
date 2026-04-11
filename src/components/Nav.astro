@@ -21,23 +21,6 @@ function isActive(href: string) {
       <img src="/logo.png" alt="Facética" class="nav-logo-img" />
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="nav-links" aria-label="Navegación principal">
-      {navLinks.map((link) => (
-        <a
-          href={link.href}
-          class={`nav-link ${isActive(link.href) ? 'is-active' : ''}`}
-        >
-          {link.label}
-        </a>
-      ))}
-    </nav>
-
-    <!-- CTA -->
-    <a href="/contacto" class="nav-cta btn btn-primary">
-      Conversemos
-    </a>
-
     <!-- Mobile Hamburger -->
     <button
       class="nav-hamburger"
@@ -55,16 +38,6 @@ function isActive(href: string) {
 <!-- Mobile Overlay -->
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
   <div class="nav-overlay-inner">
-    <nav class="nav-overlay-links" aria-label="Navegación móvil">
-      {navLinks.map((link) => (
-        <a href={link.href} class="nav-overlay-link">
-          {link.label}
-        </a>
-      ))}
-      <a href="/contacto" class="nav-overlay-link nav-overlay-cta">
-        Conversemos
-      </a>
-    </nav>
     <div class="nav-overlay-footer">
       <a href="mailto:hola@facetica.com" class="nav-overlay-email">
         hola@facetica.com

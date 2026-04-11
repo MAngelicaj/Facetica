@@ -32,33 +32,8 @@ const year = new Date().getFullYear();
 
     <hr class="rule" />
 
-    <!-- Middle: Columns -->
+    <!-- Middle: Contact -->
     <div class="footer-grid">
-      <!-- Nav Column -->
-      <div class="footer-col">
-        <span class="footer-col-label">Navegación</span>
-        <ul class="footer-links">
-          {navLinks.map((link) => (
-            <li>
-              <a href={link.href} class="footer-link">{link.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Services Column -->
-      <div class="footer-col">
-        <span class="footer-col-label">Servicios</span>
-        <ul class="footer-links">
-          {services.map((s) => (
-            <li>
-              <a href={s.href} class="footer-link">{s.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Contact Column -->
       <div class="footer-col">
         <span class="footer-col-label">Contacto</span>
         <ul class="footer-links">
@@ -128,7 +103,7 @@ const year = new Date().getFullYear();
   /* ── Grid ── */
   .footer-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-48);
     padding-block: var(--space-48);
   }
