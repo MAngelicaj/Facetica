@@ -1,17 +1,10 @@
 ---
 const navLinks = [
-  { href: '/nosotros', label: 'Nosotros' },
-  { href: '/servicios', label: 'Servicios' },
-  { href: '/casos', label: 'Casos' },
-  { href: '/ideas', label: 'Ideas' },
+  { href: '#servicios', label: 'Servicios' },
+  { href: '#equipo', label: 'El equipo' },
+  { href: '#metodologia', label: 'Metodología' },
+  { href: '#contacto', label: 'Contacto' },
 ];
-
-const currentPath = Astro.url.pathname;
-
-function isActive(href: string) {
-  if (href === '/') return currentPath === '/';
-  return currentPath.startsWith(href);
-}
 ---
 
 <header class="nav" id="site-nav">
@@ -20,6 +13,13 @@ function isActive(href: string) {
     <a href="/" class="nav-logo" aria-label="Facética — Inicio">
       <img src="/logo.png" alt="Facética" class="nav-logo-img" />
     </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links" aria-label="Navegación principal">
+      {navLinks.map((link) => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
 
     <!-- Mobile Hamburger -->
     <button
@@ -38,6 +38,11 @@ function isActive(href: string) {
 <!-- Mobile Overlay -->
 <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
   <div class="nav-overlay-inner">
+    <nav class="nav-overlay-links" aria-label="Navegación móvil">
+      {navLinks.map((link) => (
+        <a href={link.href} class="nav-overlay-link">{link.label}</a>
+      ))}
+    </nav>
     <div class="nav-overlay-footer">
       <a href="mailto:hola@facetica.com" class="nav-overlay-email">
         hola@facetica.com
