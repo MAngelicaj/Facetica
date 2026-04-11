@@ -5,19 +5,19 @@
 
 /* ── Color System ── */
 :root {
-  --color-bg-primary:       #FAF9F7;
-  --color-bg-secondary:     #F2EFE9;
-  --color-bg-dark:          #0E1A13;
-  --color-bg-dark-alt:      #1A3329;
-  --color-text-primary:     #1A1A18;
-  --color-text-secondary:   #6B6860;
-  --color-text-muted:       #9E9B95;
-  --color-text-inverse:     #F0ECE4;
-  --color-accent:           #C4614A;   /* coral / terracota — acento principal */
-  --color-accent-hover:     #AD5040;   /* coral oscuro — hover */
+  --color-bg-primary:       #F5F2ED;   /* beige editorial — fondo principal */
+  --color-bg-secondary:     #EDE9E2;   /* beige medio — secciones alternas, footer */
+  --color-bg-dark:          #1A1A1A;   /* negro suave — secciones oscuras */
+  --color-bg-dark-alt:      #2A2A2A;   /* gris muy oscuro — marquee */
+  --color-text-primary:     #1A1A1A;   /* negro suave — titulares */
+  --color-text-secondary:   #4A4A4A;   /* gris — textos largos */
+  --color-text-muted:       #9A9590;   /* gris muted — labels, números */
+  --color-text-inverse:     #F5F2ED;   /* beige — sobre fondos oscuros */
+  --color-accent:           #FF6B5C;   /* coral principal — botones / bloques clave */
+  --color-accent-hover:     #FF8A7A;   /* coral suave — hover / detalles / destacados */
   --color-accent-champagne: #C8C49C;   /* champagne — decorativo */
-  --color-border:           #E4E1DA;
-  --color-border-dark:      #2A3D32;
+  --color-border:           #DDD9D2;   /* borde beige */
+  --color-border-dark:      #333333;   /* borde oscuro */
 
   /* ── Spacing Scale (base 8px) ── */
   --space-4:    0.25rem;
@@ -194,14 +194,14 @@ button {
 }
 
 .btn-primary {
-  background-color: var(--color-text-primary);
-  color: var(--color-text-inverse);
-  border: 1px solid var(--color-text-primary);
+  background-color: var(--color-accent);
+  color: #fff;
+  border: 1px solid var(--color-accent);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
 }
 
 .btn-outline {
