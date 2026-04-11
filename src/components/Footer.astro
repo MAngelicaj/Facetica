@@ -24,7 +24,9 @@ const year = new Date().getFullYear();
   <div class="container">
     <!-- Top: Wordmark + tagline -->
     <div class="footer-top">
-      <a href="/" class="footer-logo">Facética</a>
+      <a href="/" class="footer-logo">
+        <img src="/logo.png" alt="Facética" class="footer-logo-img" />
+      </a>
       <p class="footer-tagline">Consultoría de Comunicación Estratégica · Santiago, Chile</p>
     </div>
 
@@ -103,16 +105,18 @@ const year = new Date().getFullYear();
   }
 
   .footer-logo {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--color-text-primary);
+    display: inline-flex;
     transition: opacity var(--duration-fast);
   }
 
   .footer-logo:hover {
     opacity: 0.6;
+  }
+
+  .footer-logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
   }
 
   .footer-tagline {
